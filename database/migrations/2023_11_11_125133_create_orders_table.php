@@ -14,9 +14,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->integer('product_id');
-            $table->string('quantity');
-            $table->enum('status',[Status::STOCK,Status::SHIPPED]);
+            $table->unsignedBigInteger('product_id')->nullable();
+            $table->integer('quantity');
+            // $table->enum('order_status',[Status::STOCK,Status::SHIPPED])->default('DRAFT');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
     }
