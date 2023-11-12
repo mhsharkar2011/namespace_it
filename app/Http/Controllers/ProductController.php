@@ -12,9 +12,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data['products'] = Product::all();
-        return response()->json($data);
-        // return view('welcome',$data);
+        $data['products'] = Product::with('orders')->get();
+        return view('welcome',$data);
     }
 
     /**
@@ -63,5 +62,10 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+    }
+
+    public function cart()
+    {
+
     }
 }

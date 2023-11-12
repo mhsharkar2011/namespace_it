@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('product_quantity');
+            $table->double('price');
             // $table->enum('product_status',[Status::DRAFT,Status::STOCK,Status::SOLD])->default('DRAFT');
             $table->timestamps();
         });
