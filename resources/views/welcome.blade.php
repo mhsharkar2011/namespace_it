@@ -1,6 +1,10 @@
 
 
-@vite(['resources/css/app.css', 'resources/js/app.js'])
+@extends('layouts.app')
+
+@section('content')
+    
+
 <div class="bg-white">
     <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
       <h2 class="text-2xl font-bold tracking-tight text-gray-900">Product</h2>
@@ -21,12 +25,24 @@
               </h3>
               <p class="mt-1 text-sm text-gray-500"> {{ $product->product_quantity }}</p>
             </div>
-            <p class="text-sm font-medium text-gray-900">$35</p>
-          </div>
+            <p class="text-sm font-medium text-gray-900"> Tk {{ $product->price }}</p>
+        </div>
+        <button type="button" class="font-medium text-green-700 hover:text-indigo-500">Add To Cart</button>
         </div>
         @endforeach
         <!-- More products... -->
       </div>
     </div>
   </div>
+  @endsection
 
+
+
+
+
+  <script>
+    function addToCart(productId) {
+        // You can implement the logic to add the product to the cart here
+        console.log('Product added to cart:', productId);
+    }
+</script>
